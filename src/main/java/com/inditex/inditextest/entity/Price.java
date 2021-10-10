@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 public class Price {
 
     @OneToOne(targetEntity = Brand.class)
-    @Column(name = "BRAND_ID")
-    private int brandId;
+    @JoinColumn(name = "BRAND_ID")
+    private Brand brand;
 
     @Column(name = "START_DATE")
     private LocalDateTime startDate;
