@@ -1,1 +1,1 @@
-insert into BRANDS (BRAND_NAME) values ('ZARA');
+insert into INDITEX.BRANDS (BRAND_NAME) values ('ZARA');

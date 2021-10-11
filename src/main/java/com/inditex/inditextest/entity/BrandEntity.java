@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "BRANDS")
+@Table(name = "BRANDS", schema = "INDITEX")
 public class BrandEntity {
 
     @Id

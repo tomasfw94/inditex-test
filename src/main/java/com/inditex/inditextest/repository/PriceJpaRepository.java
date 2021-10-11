@@ -14,7 +14,7 @@ import java.util.Optional;
 @Transactional
 public interface PriceJpaRepository extends JpaRepository<PriceEntity, PriceEntityId> {
 
-    @Query(value = "SELECT * FROM PRICES p WHERE p.PRODUCT_ID = :productId AND p.BRAND_ID = :brandId AND :date between p.START_DATE and p.END_DATE",
+    @Query(value = "SELECT TOP 1 * FROM INDITEX.PRICES p WHERE p.PRODUCT_ID = :productId AND p.BRAND_ID = :brandId AND :date between p.START_DATE and p.END_DATE ORDER BY PRIORITY DESC",
     nativeQuery = true)
     Optional<PriceEntity> findProductPriceByBrandIdAndDateWithHighestPriority(int productId, int brandId, LocalDateTime date);
 
