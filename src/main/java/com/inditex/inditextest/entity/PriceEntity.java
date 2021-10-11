@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @IdClass(PriceEntityId.class)
-@Table(name = "PRICES")
+@Table(name = "PRICES", schema = "INDITEX")
 public class PriceEntity {
 
     @OneToOne(targetEntity = BrandEntity.class)
