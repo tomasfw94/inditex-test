@@ -1,20 +1,24 @@
 package com.inditex.inditextest.entity;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
 @Entity
-@IdClass(PriceId.class)
+@IdClass(PriceEntityId.class)
 @Table(name = "PRICES")
-public class Price {
+public class PriceEntity {
 
-    @OneToOne(targetEntity = Brand.class)
-    @Column(name = "BRAND_ID")
-    private int brandId;
+    @OneToOne(targetEntity = BrandEntity.class)
+    @JoinColumn(name = "BRAND_ID")
+    private BrandEntity brand;
 
     @Column(name = "START_DATE")
     private LocalDateTime startDate;
