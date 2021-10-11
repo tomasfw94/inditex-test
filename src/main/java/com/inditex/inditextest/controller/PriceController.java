@@ -15,11 +15,11 @@ import java.time.LocalDateTime;
 @RestController
 public class PriceController {
 
-    private IPriceService productPriceService;
+    private IPriceService priceService;
 
     @Autowired
-    public PriceController(@Qualifier("priceService") IPriceService productPriceService){
-        this.productPriceService = productPriceService;
+    public PriceController(@Qualifier("priceService") IPriceService priceService){
+        this.priceService = priceService;
     }
 
     @GetMapping("/product/{productId}/brand/{brandId}/price")
@@ -28,9 +28,7 @@ public class PriceController {
             @PathVariable int brandId,
             @RequestParam (name = "date") LocalDateTime date){
 
-        productPriceService.getProductPriceInformationByBrandAndDate(productId, brandId, date);
-
-        return new ResponseEntity("", HttpStatus.OK);
+        return new ResponseEntity(priceService.getProductPriceInformationByBrandAndDate(productId, brandId, date), HttpStatus.OK);
     }
 
 }
