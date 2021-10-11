@@ -10,7 +10,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class RestExceptionHandler extends ResponseEntityExceptionHandler {
+public class RestExceptionAdvice extends ResponseEntityExceptionHandler {
 
     private static final String PRODUCT_NOT_FOUND = "Product with ID: %s and Brand ID: %s not found.";
 
