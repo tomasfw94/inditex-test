@@ -1,6 +1,6 @@
 package com.inditex.inditextest.exception;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
