@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-@Service("priceService")
+@Service
 public class PriceService implements IPriceService {
 
     private IPriceRepository priceRepository;
