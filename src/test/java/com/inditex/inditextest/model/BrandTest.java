@@ -6,15 +6,15 @@ import static org.junit.Assert.assertEquals;
 
 public class BrandTest {
 
+    private static final int BRAND_ID = 1;
+    private static final String BRAND_NAME = "brand";
+
     @Test
     public void brandConstructor_correctParameters_buildsOk(){
-        int brandId = 1;
-        String brandName = "brand";
+        Brand testBrand = new Brand(BRAND_ID, BRAND_NAME);
 
-        Brand testBrand = new Brand(brandId, brandName);
-
-        assertEquals(brandId, testBrand.getBrandId());
-        assertEquals(brandName, testBrand.getBrandName());
+        assertEquals(BRAND_ID, testBrand.getBrandId());
+        assertEquals(BRAND_NAME, testBrand.getBrandName());
     }
 
 }

@@ -31,6 +31,11 @@ public class PriceRepositoryTest {
     @Mock
     PriceJpaRepository jpaRepository;
 
+    @Before
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
     private static final int PRODUCT_ID = 999;
     private static final int PRICE_LIST = 999;
     private static final int BRAND_ID = 999;
@@ -38,28 +43,20 @@ public class PriceRepositoryTest {
     private static final LocalDateTime DATE = LocalDateTime.now();
     private static final BigDecimal PRICE = BigDecimal.valueOf(999.99);
 
-    private BrandEntity brandEntity;
-    private PriceEntity priceEntity;
-
-    @Before
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-
-        brandEntity = new BrandEntity();
+    @Test
+    public void findProductPriceByBrandIdAndDateWithHighestPriority(){
+        BrandEntity brandEntity = new BrandEntity();
         brandEntity.setBrandId(BRAND_ID);
         brandEntity.setBrandName(BRAND_NAME);
 
-        priceEntity = new PriceEntity();
+        PriceEntity priceEntity = new PriceEntity();
         priceEntity.setBrand(brandEntity);
         priceEntity.setProductId(PRODUCT_ID);
         priceEntity.setPriceList(PRICE_LIST);
         priceEntity.setStartDate(DATE);
         priceEntity.setEndDate(DATE);
         priceEntity.setPrice(PRICE);
-    }
 
-    @Test
-    public void findProductPriceByBrandIdAndDateWithHighestPriority(){
         Optional<PriceEntity> optionalPriceEntity = Optional.of(priceEntity);
 
         doReturn(optionalPriceEntity).when(jpaRepository).findProductPriceByBrandIdAndDateWithHighestPriority(PRODUCT_ID, BRAND_ID, DATE);

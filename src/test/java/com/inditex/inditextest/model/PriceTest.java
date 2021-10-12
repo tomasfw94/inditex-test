@@ -9,35 +9,35 @@ import static org.junit.Assert.assertEquals;
 
 public class PriceTest {
 
+    private static final Brand BRAND = new Brand(1, "brand");
+    private static final LocalDateTime START_DATE = LocalDateTime.now().minusDays(1);
+    private static final LocalDateTime END_DATE = LocalDateTime.now().plusDays(1);;
+    private static final int PRICE_LIST = 5;
+    private static final int PRODUCT_ID = 10;
+    private static final int PRIORITY = 15;
+    private static final BigDecimal PRICE = BigDecimal.valueOf(99.99);
+    private static final String CURR = "EUR";
+
     @Test
     public void priceBuilder_correctParameters_buildsOk(){
-        Brand brand = new Brand(1, "brand");
-        LocalDateTime startDate = LocalDateTime.now().minusDays(1);
-        LocalDateTime endDate = LocalDateTime.now().plusDays(1);;
-        int priceList = 5;
-        int productId = 10;
-        int priority = 15;
-        BigDecimal price = BigDecimal.valueOf(99.99);
-        String curr = "EUR";
-
         Price testPrice = Price.builder()
-                .brand(brand)
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(priceList)
-                .productId(productId)
-                .priority(priority)
-                .price(price)
-                .curr(curr).build();
+                .brand(BRAND)
+                .startDate(START_DATE)
+                .endDate(END_DATE)
+                .priceList(PRICE_LIST)
+                .productId(PRODUCT_ID)
+                .priority(PRIORITY)
+                .price(PRICE)
+                .curr(CURR).build();
 
-        assertEquals(brand, testPrice.getBrand());
-        assertEquals(startDate, testPrice.getStartDate());
-        assertEquals(endDate, testPrice.getEndDate());
-        assertEquals(priceList, testPrice.getPriceList());
-        assertEquals(productId, testPrice.getProductId());
-        assertEquals(priority, testPrice.getPriority());
-        assertEquals(price, testPrice.getPrice());
-        assertEquals(curr, testPrice.getCurr());
+        assertEquals(BRAND, testPrice.getBrand());
+        assertEquals(START_DATE, testPrice.getStartDate());
+        assertEquals(END_DATE, testPrice.getEndDate());
+        assertEquals(PRICE_LIST, testPrice.getPriceList());
+        assertEquals(PRODUCT_ID, testPrice.getProductId());
+        assertEquals(PRIORITY, testPrice.getPriority());
+        assertEquals(PRICE, testPrice.getPrice());
+        assertEquals(CURR, testPrice.getCurr());
     }
 
 }
