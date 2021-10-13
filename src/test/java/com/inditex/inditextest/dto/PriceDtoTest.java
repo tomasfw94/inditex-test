@@ -9,28 +9,28 @@ import static org.junit.Assert.assertEquals;
 
 public class PriceDtoTest {
 
+    private static final int PRODUCT_ID = 10;
+    private static final int BRAND_ID = 1;
+    private static final int PRICE_LIST = 5;
+    private static final LocalDateTime START_DATE = LocalDateTime.now().minusDays(1);
+    private static final LocalDateTime END_DATE = LocalDateTime.now().plusDays(1);;
+    private static final BigDecimal PVP = BigDecimal.valueOf(99.99);
+
     @Test
     public void priceDtoBuilder_correctParameters_buildsOk(){
-        int productId = 10;
-        int brandId = 1;
-        int priceList = 5;
-        LocalDateTime startDate = LocalDateTime.now().minusDays(1);
-        LocalDateTime endDate = LocalDateTime.now().plusDays(1);;
-        BigDecimal pvp = BigDecimal.valueOf(99.99);
-
         PriceDto testPriceDto = PriceDto.builder()
-                .productId(productId)
-                .brandId(brandId)
-                .priceList(priceList)
-                .startDate(startDate)
-                .endDate(endDate)
-                .pvp(pvp).build();
+                .productId(PRODUCT_ID)
+                .brandId(BRAND_ID)
+                .priceList(PRICE_LIST)
+                .startDate(START_DATE)
+                .endDate(END_DATE)
+                .pvp(PVP).build();
 
-        assertEquals(productId, testPriceDto.getProductId());
-        assertEquals(brandId, testPriceDto.getBrandId());
-        assertEquals(priceList, testPriceDto.getPriceList());
-        assertEquals(startDate, testPriceDto.getStartDate());
-        assertEquals(endDate, testPriceDto.getEndDate());
-        assertEquals(pvp, testPriceDto.getPvp());
+        assertEquals(PRODUCT_ID, testPriceDto.getProductId());
+        assertEquals(BRAND_ID, testPriceDto.getBrandId());
+        assertEquals(PRICE_LIST, testPriceDto.getPriceList());
+        assertEquals(START_DATE, testPriceDto.getStartDate());
+        assertEquals(END_DATE, testPriceDto.getEndDate());
+        assertEquals(PVP, testPriceDto.getPvp());
     }
 }
