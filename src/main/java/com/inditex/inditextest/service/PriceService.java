@@ -2,17 +2,17 @@ package com.inditex.inditextest.service;
 
 import com.inditex.inditextest.dto.PriceDto;
 import com.inditex.inditextest.model.Price;
-import com.inditex.inditextest.repository.PriceRepository;
-import org.springframework.stereotype.Component;
+import com.inditex.inditextest.repository.IPriceRepository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-@Component("priceService")
+@Service
 public class PriceService implements IPriceService {
 
-    private PriceRepository priceRepository;
+    private IPriceRepository priceRepository;
 
-    public PriceService(PriceRepository priceRepository){
+    public PriceService(IPriceRepository priceRepository){
         this.priceRepository = priceRepository;
     }
 

@@ -2,7 +2,6 @@ package com.inditex.inditextest.controller;
 
 import com.inditex.inditextest.service.IPriceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +17,7 @@ public class PriceController {
     private IPriceService priceService;
 
     @Autowired
-    public PriceController(@Qualifier("priceService") IPriceService priceService){
+    public PriceController(IPriceService priceService){
         this.priceService = priceService;
     }
 
